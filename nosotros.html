@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - TecnoAgroEcologi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00796B;
+            --secondary-color: #004d40;
+            --accent-color: #4CAF50;
+            --light-bg: #f5f9f8;
+            --text-dark: #263238;
+            --text-light: #eceff1;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        /* Navbar estilizado */
+        .navbar {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero section */
+        .about-hero {
+            background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.9)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-weight: 700;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Tarjetas mejoradas */
+        .about-card {
+            background: white;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            padding: 2.5rem;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-card h2 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-card h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .about-card p {
+            font-size: 1.1rem;
+            color: #546e7a;
+        }
+        
+        /* Logo section */
+        .logo-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .logo-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border: 3px solid var(--accent-color);
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        .logo-note {
+            font-style: italic;
+            color: #78909c;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        /* Team section */
+        .team-section {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .team-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .member-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-role {
+            color: #78909c;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Animaciones */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero p {
+                font-size: 1rem;
+            }
+            
+            .about-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <img src="Logo.jpeg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+            <a class="navbar-brand" href="inicio.html">TecnoAgroEcologi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="inicio.html"><i class="fas fa-home me-1"></i> Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="nosotros.html"><i class="fas fa-users me-1"></i> Sobre nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer"><i class="fas fa-envelope me-1"></i> Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ingresar.php"><i class="fas fa-sign-in-alt me-1"></i> Ingresar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <section class="about-hero fade-in">
+        <div class="container">
+            <h1 class="mb-4">Conoce nuestro equipo</h1>
+            <p class="lead">"La pasión por la tecnología y la agricultura nos une para crear soluciones innovadoras"</p>
+        </div>
+    </section>
+
+    <!-- Logo section -->
+    <section class="logo-section fade-in">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.jpeg" alt="Logo TAE">
+            </div>
+            <h1 class="mb-3">Bienvenido a TAE</h1>
+            <p class="lead mb-4">"Tu aliado tecnológico para optimizar y mejorar tus cultivos"</p>
+        </div>
+    </section>
+
+    <!-- About content -->
+    <main class="container my-5">
+        <div class="about-card fade-in">
+            <h2>¿Quiénes somos?</h2>
+            <p>Somos un equipo de jóvenes emprendedores apasionados por la tecnología y la agricultura. Ofrecemos servicios innovadores a través de una aplicación web y móvil diseñada específicamente para pequeños y medianos agricultores.</p>
+            <p>Nuestra plataforma incorpora inteligencia artificial para asistir en todas las etapas del cultivo: desde recomendaciones sobre tiempos de riego y aplicación de abonos, hasta guías para la creación de abonos orgánicos adaptados a diferentes tipos de cultivos.</p>
+            <p>Complementamos nuestro software con hardware especializado, incluyendo sensores para medir la humedad del suelo y sistemas de riego automatizado, creando así soluciones integrales para la agricultura moderna.</p>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-6 fade-in" style="animation-delay: 0.1s;">
+                <div class="about-card h-100">
+                    <h2>Misión</h2>
+                    <p>Brindar a los agricultores salvadoreños herramientas tecnológicas accesibles y fáciles de usar que les permitan:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: var(--accent-color);"></i> Mejorar la calidad y rendimiento de sus cultivos</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: var(--accent-color);"></i> Optimizar el uso de recursos naturales</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: var(--accent-color);"></i> Tomar decisiones informadas basadas en datos</li>
+                        <li><i class="fas fa-check-circle me-2" style="color: var(--accent-color);"></i> Implementar sistemas de automatización agrícola</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-6 fade-in" style="animation-delay: 0.2s;">
+                <div class="about-card h-100">
+                    <h2>Visión</h2>
+                    <p>Nos proyectamos como líderes en soluciones tecnológicas para la agricultura en Centroamérica, integrando:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-leaf me-2" style="color: var(--accent-color);"></i> Dispositivos IoT para optimización de cultivos</li>
+                        <li class="mb-2"><i class="fas fa-robot me-2" style="color: var(--accent-color);"></i> Sistemas de riego automatizado inteligente</li>
+                        <li class="mb-2"><i class="fas fa-chart-line me-2" style="color: var(--accent-color);"></i> Análisis de datos en tiempo real</li>
+                        <li><i class="fas fa-hand-holding-water me-2" style="color: var(--accent-color);"></i> Agricultura sostenible y eficiente</li>
+                    </ul>
+                    <p class="mt-3">Aspiramos a transformar el futuro de los agricultores salvadoreños, proporcionando acceso a herramientas tecnológicas eficientes y asequibles que impulsen una agricultura más sostenible, rentable y conectada.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team section -->
+        <section class="team-section fade-in">
+            <div class="container">
+                <h2 class="team-title">Nuestro Equipo Fundador</h2>
+                <div class="row">
+                    <div class="col-md-3 col-6 team-member">
+                        <img src="WhatsApp Image 2025-07-01 at 9.27.14 AM (1).jpeg" alt="Mario Martínez" class="member-img">
+                        <h4 class="member-name">Mario Martínez</h4>
+                        <p class="member-role">CEO & Fundador</p>
+                    </div>
+                    <div class="col-md-3 col-6 team-member">
+                        <img src="Josue.jpeg" alt="Josue Hernandez" class="member-img">
+                        <h4 class="member-name">Josue Hernandez</h4>
+                        <p class="member-role">CTO</p>
+                    </div>
+                    <div class="col-md-3 col-6 team-member">
+                        <img src="Oscar.jpeg" alt="Oscae Días" class="member-img">
+                        <h4 class="member-name">Oscar Días</h4>
+                        <p class="member-role">Ingeniero Agrónomo</p>
+                    </div>
+                    <div class="col-md-3 col-6 team-member">
+                        <img src="maydely.jpeg" alt="Maydely Santos" class="member-img">
+                        <h4 class="member-name">Maydely Santos</h4
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+  <!-- Inicio del pie de página -->
+  <footer id="footer" class="text-center py-5">
+    <div class="container">
+      <p class="mb-2"><i class="fas fa-phone me-2"></i>+503 73460339</p>
+      <p class="mb-2"><i class="fas fa-envelope me-2"></i>contacto@tecnoagroecologi.com</p>
+      <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Estamos en San Miguel y Usulután</p>
+      <hr class="my-4 bg-light">
+      <p class="mb-0">© 2025 TAE, Todos los derechos reservados.</p>
+    </div>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animación al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Configura inicialmente los elementos como invisibles
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Ejecuta al cargar y al hacer scroll
+            fadeInOnScroll();
+            window.addEventListener('scroll', fadeInOnScroll);
+        });
+    </script>
+</body>
+</html>

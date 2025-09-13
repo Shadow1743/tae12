@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Pagina hecha por:
+  Mario Martínez
+  Josue Hernandez 
+  Oscae Días 
+  Maydely Santos
+  Sección B2 -->
+  <!-- Las imagenes se realizaron con IA en especifico copilot -->
+  <!-- Hacemos constar que no hemos dado ni recibido ayuda no autorizada en la realización de esta asignación -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAE - TecnoAgroEcologi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #00796B;
+      --secondary-color: #004d40;
+      --accent-color: #4CAF50;
+      --light-bg: #f5f9f8;
+      --text-dark: #263238;
+      --text-light: #eceff1;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--light-bg);
+      line-height: 1.6;
+    }
+    
+    /* Navbar estilizado */
+    .navbar {
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent-color) !important;
+      transform: translateY(-2px);
+    }
+    
+    /* Hero section */
+    .hero {
+      background: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.9)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 5rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .hero h1 {
+      font-weight: 700;
+      font-size: 3.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Tarjetas mejoradas */
+    .card {
+      background: white;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card h2 {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .card-body {
+      padding: 2rem;
+    }
+    
+    /* Secciones */
+    .section-title {
+      color: var(--secondary-color);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      background: var(--accent-color);
+      bottom: -10px;
+      left: 0;
+      border-radius: 2px;
+    }
+    
+    .lead {
+      font-size: 1.1rem;
+      color: #546e7a;
+      margin-bottom: 2rem;
+    }
+    
+    /* Galería */
+    .gallery-img {
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+    
+    .gallery-img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Botones */
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      padding: 0.75rem 2rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      color: white;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: var(--accent-color);
+      transform: translateY(-3px);
+    }
+    
+    /* Efectos y animaciones */
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Apartado del navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <img src="Logo.jpeg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+      <a class="navbar-brand" href="#">TecnoAgroEcologi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-home me-1"></i> Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html"><i class="fas fa-users me-1"></i> Sobre nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#footer"><i class="fas fa-envelope me-1"></i> Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="ingresar.php"><i class="fas fa-sign-in-alt me-1"></i> Ingresar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero section mejorada -->
+  <section class="hero text-center">
+    <div class="container fade-in">
+      <h1 class="mb-4">Innovación agrícola sostenible</h1>
+      <p class="lead">"La unión perfecta entre tecnología, agricultura y cuidado del medio ambiente para revolucionar tus cultivos"</p>
+      <a href="ingresar.php" class="btn btn-primary btn-lg mt-3"><i class="fas fa-seedling me-2"></i>Comienza ahora</a>
+    </div>
+  </section>
+
+  <!-- Contenido principal -->
+  <main class="container my-5">
+    <section class="text-center mb-5 fade-in">
+     
+      <h1 class="section-title">Productos y Servicios TAE</h1>
+      <p class="lead">Descubre nuestras soluciones y productos innovadores para el sector agrícola que llevarán tu siembra al siguiente nivel.</p>
+    </section>
+
+    <!-- Productos -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-4 fade-in" style="animation-delay: 0.1s;">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <i class="fas fa-tint fa-3x mb-3" style="color: var(--primary-color);"></i>
+            <h2>Sensores de humedad</h2>
+            <p>Detecta el estado del suelo en tiempo real para tener un riego más efectivo y optimizar el uso de agua.</p>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="col-md-4 fade-in" style="animation-delay: 0.3s;">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <i class="fas fa-brain fa-3x mb-3" style="color: var(--primary-color);"></i>
+            <h2>Plataforma de análisis de cultivos</h2>
+            <p>Obtén información mediante consulta a una IA especializada en agricultura para tomar mejores decisiones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Galería -->
+    <section class="mb-5 fade-in">
+      <h1 class="section-title text-center">Galería de productos</h1>
+      <p class="lead text-center">Conoce nuestros productos y servicios a través de imágenes</p>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <img src="Sensor.jpeg" alt="Sensor de humedad" class="img-fluid gallery-img">
+        </div>
+        <div class="col-md-4">
+          <img src="IA.png" alt="IA agrícola" class="img-fluid gallery-img">
+        </div>
+      <div class="text-center mt-4">
+        <a href="ingresar.php" class="btn btn-primary"><i class="fas fa-sign-in-alt me-2"></i>Ingresa para probar nuestra IA</a>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="mb-5 fade-in">
+      <h1 class="section-title text-center">Nuestros Servicios</h1>
+      <p class="lead text-center">Brindamos asesoría, instalación y mantenimiento para nuestras soluciones</p>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-chalkboard-teacher fa-3x mb-3" style="color: var(--primary-color);"></i>
+              <h2>Asesoría técnica</h2>
+              <p>Valoramos el rendimiento de tu cultivo. Nuestro equipo de expertos te guiará paso a paso.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-tools fa-3x mb-3" style="color: var(--primary-color);"></i>
+              <h2>Mantenimiento</h2>
+              <p>Brindamos mantenimiento preventivo y correctivo para garantizar el óptimo funcionamiento.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-cogs fa-3x mb-3" style="color: var(--primary-color);"></i>
+              <h2>Instalación</h2>
+              <p>Realizamos la instalación profesional de los dispositivos en tu terreno.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soporte -->
+    <section class="fade-in">
+      <h1 class="section-title text-center">Servicios de soporte</h1>
+      <p class="lead text-center">¿Necesitas apoyo? Nuestro equipo de servicio al cliente está disponible para ayudarte</p>
+      
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="fas fa-headset fa-3x mb-3" style="color: var(--primary-color);"></i>
+          <h2>Atención al cliente y soporte técnico</h2>
+          <p>Puedes contactar a nuestro equipo en cualquier momento para resolver tus dudas y problemas.</p>
+          <a href="#footer" class="btn btn-primary mt-3"><i class="fas fa-envelope me-2"></i>Contáctanos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Inicio del pie de página -->
+  <footer id="footer" class="text-center py-5">
+    <div class="container">
+      <p class="mb-2"><i class="fas fa-phone me-2"></i>+503 73460339</p>
+      <p class="mb-2"><i class="fas fa-envelope me-2"></i>contacto@tecnoagroecologi.com</p>
+      <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Estamos en San Miguel y Usulután</p>
+      <hr class="my-4 bg-light">
+      <p class="mb-0">© 2025 TAE, Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Elemento de animación para hacer el scrool
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementTop < windowHeight - 100) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+          }
+        });
+      };
+      
+      // Configura inicialmente los elementos como invisibles
+      fadeElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      });
+      
+      // Ejecuta al cargar y al hacer scroll
+      fadeInOnScroll();
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+  </script>
+</body>
+</html>
